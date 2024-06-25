@@ -18,8 +18,8 @@ CHUNK_OVERLAP = 100
 load_dotenv()
 
 # Load Markdown documents
-def load_docs():
-    loader = DirectoryLoader(DATA_PATH, glob="*.md", recursive=True, show_progress=True)
+def load_docs(data_path):
+    loader = DirectoryLoader(data_path, glob="*.md", recursive=True, show_progress=True)
     return loader.load()
 
 # Update progress
@@ -87,7 +87,7 @@ def get_chunked_docs(docs, batch_size=160, chunk_size=1000, chunk_overlap=100):
 
         split_docs_chunked = split_list(split_documents, batch_size)
         
-        update_progress(f"Split chunked {len(split_documents)} documents into {len(split_docs_chunked)} chunks")
+        update_progress(f"Completed split chunked!")
 
         return split_docs_chunked
 

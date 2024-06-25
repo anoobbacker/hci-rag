@@ -6,3 +6,5 @@ langchain_openai
 openai
 python-dotenv
 streamlit
+unstructured
+unstructured[md]

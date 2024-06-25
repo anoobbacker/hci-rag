@@ -3,4 +3,5 @@ rag-gs/
 .locks/
 .env
 data/
+.data/
 .backup/

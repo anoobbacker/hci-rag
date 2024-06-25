@@ -21,7 +21,7 @@
     ```shell
     conda activate rag-gs
     ```
-## Install OpenAI Python client library
+## Install dependencies
 ```shell
 pip install numpy
 pip install openai
@@ -31,8 +31,13 @@ pip install langchain
 pip install langchain-openai
 pip install langchain-community
 pip install unstructured
+pip install "unstructured[md]"
 pip install nltk
 pip install chromadb
+```
+or use `requirements.txt` to install
+```shell
+pip install -r requirements.txt
 ```
 
 ## Download the Azure Stack HCI docs
@@ -42,11 +47,16 @@ To download the Azure Stack HCI docs, you can follow these steps:
 
 1. Click on the green "Code" button located on the right side of the repository.
 
-1. In the dropdown menu, select "Download ZIP".
-
-1. Save the ZIP file to a location on your computer.
+1. In the dropdown menu, select "Download ZIP". Save the ZIP file to a location on your computer.
+    ```shell
+    mkdir data
+    wget https://github.com/MicrosoftDocs/azure-stack-docs/archive/refs/heads/main.zip -O data/docs.zip
+    ```
 
 1. Once the download is complete, extract the contents of the ZIP file to a desired folder.
+    ```shell
+    cd data && unzip docs.zip
+    ```
 
 Now you have successfully downloaded the Azure Stack HCI docs. You can proceed with the next steps in your project.
 
@@ -62,15 +72,18 @@ Now you have successfully downloaded the Azure Stack HCI docs. You can proceed w
 
     # Azure OpenAI Deployment for Embedding
     AZURE_OPENAI_API_DEPLOYMENT_EMBEDDING=your_azure_openai_deployment_embedding_here
+    AZURE_OPENAI_API_DEPLOYMENT=your_openai_deployment_chat_completion
 
-    # OpenAI API Key
+    # OpenAI API Key, if you're using OpenAI
     OPENAI_API_KEY=your_openai_api_key_here
+
+    # Azure OpenAI API version
+    OPENAI_API_VERSION="2024-02-15-preview"
     ```
 1. Save the `.env` file
 
 
 ## Create ChromaDB using Azure Stack HCI docs
-1. Unzip the project files
 1. Run the generate Chroma DB command
     ```shell
     python src/createchromadblc.py
@@ -79,12 +92,12 @@ Now you have successfully downloaded the Azure Stack HCI docs. You can proceed w
 ## Check if the RAG is working
 1. Run search data to see if RAG results are working properly.
     ```shell
-    python src/searchdata.py
+    python src/searchdata.py -query "How to register HCI?"
     ```
 
     If you want to validate using LangChain, use below:
     ```shell
-    python src/searchdata.py
+    python src/searchdatalc.py -query "How to register HCI?"
     ```
 
 ## Run streamlit
