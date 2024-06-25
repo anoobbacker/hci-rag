@@ -1,0 +1,6 @@
+rag-gs/
+.chromadb*/*
+.locks/
+.env
+data/
+.backup/
