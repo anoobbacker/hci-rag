@@ -1,3 +1,9 @@
+# Overview
+- [src/app.py](src/app.py): Streamlit app to search local Chroma DB and provide results using LLM. This uses LangChain.
+- [src/createchromadblc.py](src/createchromadblc.py): Creates a Chroma DB from local folder of Markdown files. This uses LangChain.
+- [src/searchdatalc.py](src/searchdatalc.py): Search local Chroma DB based results and provide results using LLM. This use LangChain.
+- [src/searchdata.py](src/searchdata.py): Search local Chroma DB based results and provide results using LLM. This doesn't use LangChain.
+
 # Set up the project
 
 ## Set up conda env
@@ -13,8 +19,6 @@ conda activate rag-gs
 ```
 ## Install OpenAI Python client library
 ```shell
-pip install sentence-tranformers
-pip install wikipedia-api
 pip install numpy
 pip install openai
 pip install python-dotenv
@@ -61,6 +65,6 @@ Now you have successfully downloaded the Azure Stack HCI docs. You can proceed w
     ```
 
 ## Run streamlit
-    ```shell
-    streamlit run ./src/app.py
-    ```
+```shell
+streamlit run ./src/app.py
+```
