@@ -177,7 +177,7 @@ def main(chunk_size=CHUNK_SIZE, chunk_overlap=CHUNK_OVERLAP):
             return
         
         # Create ChromaDB
-        chroma_db = create_chroma_db(split_docs_chunked, embedding, chroma_path, collection_name)
+        chroma_db = create_chroma_db(split_docs_chunked, embedding, chroma_path, collection_name, chunk_size)
     
     if chroma_db is None:
         update_progress("Failed to create ChromaDB!")
