@@ -58,14 +58,15 @@ This whole process makes sure that the generated answer is informed by the most 
 ### Create Index
 [src/createChromaDBlc.py](src/createChromaDBlc.py): Creates a Chroma DB from local folder of Markdown files. This uses LangChain.
 ![Script](images/image-03.png)
-![Chroma](images/hrm4.svg)
 
-### Retrieve answer using Console
+### Retrieve answer
+![Chroma](images/hrm4.svg)
+#### Via Console
 ![Terminal](images/image-01.png)
 - [src/searchdatalc.py](src/searchdatalc.py): Search local Chroma DB based results and provide results using LLM. This use LangChain.
 - [src/searchdata.py](src/searchdata.py): Search local Chroma DB based results and provide results using LLM. This doesn't use LangChain.
 
-## Retrieve answer using Web UI
+#### Via Web UI
 [src/app.py](src/app.py): Uses [Streamlit](https://streamlit.io/) based web app to search local Chroma DB and provide results using LLM. This uses LangChain.
 ![Streamlit](images/image-02.png)
 
@@ -148,7 +149,7 @@ Now you have successfully downloaded the Azure Stack HCI docs. You can proceed w
 ## Create ChromaDB using Azure Stack HCI docs
 1. Run the generate Chroma DB command
     ```shell
-    python src/createchromadblc.py
+    python src/createChromaDBlc.py
     ```
 
 ## Check if the RAG is working
