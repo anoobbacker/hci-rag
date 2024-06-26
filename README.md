@@ -2,18 +2,18 @@
 [Retrieval Augmented Generation](https://ai.meta.com/blog/retrieval-augmented-generation-streamlining-the-creation-of-intelligent-natural-language-processing-models/) article  published in September 2020, says:
 > RAG frees researchers and engineers to quickly develop and deploy solutions to their own knowledge-intensive tasks with just [five lines of code](https://huggingface.co/facebook/rag-token-nq#usage).
 
-    ```python
-    from transformers import RagTokenizer, RagRetriever, RagTokenForGeneration
+```python
+from transformers import RagTokenizer, RagRetriever, RagTokenForGeneration
 
-    tokenizer = RagTokenizer.from_pretrained("facebook/rag-token-nq")
-    retriever = RagRetriever.from_pretrained("facebook/rag-token-nq", index_name="exact", use_dummy_dataset=True)
-    model = RagTokenForGeneration.from_pretrained("facebook/rag-token-nq", retriever=retriever)
+tokenizer = RagTokenizer.from_pretrained("facebook/rag-token-nq")
+retriever = RagRetriever.from_pretrained("facebook/rag-token-nq", index_name="exact", use_dummy_dataset=True)
+model = RagTokenForGeneration.from_pretrained("facebook/rag-token-nq", retriever=retriever)
 
-    input_dict = tokenizer.prepare_seq2seq_batch("who holds the record in 100m freestyle", return_tensors="pt") 
+input_dict = tokenizer.prepare_seq2seq_batch("who holds the record in 100m freestyle", return_tensors="pt") 
 
-    generated = model.generate(input_ids=input_dict["input_ids"]) 
-    print(tokenizer.batch_decode(generated, skip_special_tokens=True)[0])
-    ```
+generated = model.generate(input_ids=input_dict["input_ids"]) 
+print(tokenizer.batch_decode(generated, skip_special_tokens=True)[0])
+```
 
 
 Wow, I've managed to grasp the concept after some  analysis! Let me simplify it for you:
