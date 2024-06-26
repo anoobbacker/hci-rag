@@ -147,7 +147,7 @@ def main(chunk_size=CHUNK_SIZE, chunk_overlap=CHUNK_OVERLAP):
     parser.add_argument("-datapath", type=str, help="Folder which needs has docs to be loaded!", default=DATA_PATH)
     parser.add_argument("-chromapath", type=str, help="Chroma DB persistent folder path.", default=CHROMA_PATH)
     parser.add_argument("-collection", type=str, help="Chroma DB collection name.", default=COLLECTION_NAME)
-    parser.add_argument("-splitter", type=str, help="Mentioned the splitter.", default=SPLITTER)
+    parser.add_argument("-splitter", type=str, help="Mentioned the splitter. Values: [RecursiveCharacterTextSplitter, MarkdownTextSplitter]", default=SPLITTER)
     args = parser.parse_args()
     data_path = args.datapath
     chroma_path = args.chromapath
