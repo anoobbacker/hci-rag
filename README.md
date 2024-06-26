@@ -54,83 +54,77 @@ Another example is the word "king" might be close to the word "queen" in this sp
 
 This whole process makes sure that the generated answer is informed by the most relevant pieces of information from your documents, making the answers accurate and contextually rich.
 
-## Files
+## Just need execute two files to try this!
 
 ### Create Index
-[src/createChromaDBlc.py](src/createChromaDBlc.py): Creates a Chroma DB from local folder of Markdown files. This uses LangChain.
-![Script](images/image-03.png)
+Run [src/createChromaDBlc.py](src/createChromaDBlc.py) to create a Chroma DB from local folder of Markdown files. This uses LangChain.
+
+>![Create index flow diagram](images/image-03.png)
 
 ### Retrieve answer
-![Retrieve answer](images/image-04.png)
-#### Via Console
-![Terminal](images/image-01.png)
-- [src/searchdatalc.py](src/searchdatalc.py): Search local Chroma DB based results and provide results using LLM. This use LangChain.
-- [src/searchdata.py](src/searchdata.py): Search local Chroma DB based results and provide results using LLM. This doesn't use LangChain.
+Run [src/searchdatalc.py](src/searchdatalc.py) to search local Chroma DB based results and provide results using LLM. This uses LangChain. In case you want to see how this works without LangChain, try [src/searchdata.py](src/searchdata.py)file.
 
-#### Via Web UI
-[src/app.py](src/app.py): Uses [Streamlit](https://streamlit.io/) based web app to search local Chroma DB and provide results using LLM. This uses LangChain.
-![Streamlit](images/image-02.png)
+>![Retrieve answer flow diagram!](images/image-04.png)
 
-### Chroma
+```python
+python src/searchdatalc.py -query "how to register HCI?"
+```
+
+To try out [Streamlit](https://streamlit.io/) based chat bot web app to find answers using local Chroma DB, LangChain and Open AI, check out [src/app.py](src/app.py).
+>![Streamlit](images/image-02.png)
+
+### How Chroma works?
 Chroma is the AI-native open-source vector database. Chroma makes it easy to build LLM apps by making knowledge, facts, and skills pluggable for LLMs. For more information, refer [documentation](https://docs.trychroma.com/).
-![Chroma](images/chromadb.svg)
+>![Chroma](images/chromadb.svg)
 
-# Set up the project
+# GitHub Codespaces
 
-## Set up conda env
-1. Create virtual environment in Python using Conda. To install Miniconda, follow the instructions [here](https://docs.anaconda.com/miniconda/miniconda-install/).
+You can run this repo virtually by using GitHub Codespaces, which will open a web-based VS Code in your browser:
 
-1. Create a new environment
+[![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=599293758&machine=standardLinux32gb&location=WestUs2)
+
+Once the codespace opens (this may take several minutes), open a terminal window.
+
+# Local environment
+Install the required tools:
+
+- [Python 3.9, 3.10, or 3.11](https://www.python.org/downloads/)
+    - **Important**: Python and the pip package manager must be in the path in Windows.   
+- [Powershell 7+ (pwsh)](https://github.com/powershell/powershell) - For Windows users only.
+- [Miniconda](https://docs.anaconda.com/miniconda/miniconda-install/).
+- [Git](https://git-scm.com/downloads)
+
+# Set up the project in 10 steps
+
+1. Create virtual environment in Python using Conda. Create a new and activate the environment. Applies only to Local environment.
     ```shell
     conda create -n rag-gs
-    ```
-1. Activate a Virtual Environment on Windows
-    ```shell
     conda activate rag-gs
     ```
-## Install dependencies
-```shell
-pip install numpy
-pip install openai
-pip install python-dotenv
-pip install streamlit
-pip install langchain
-pip install langchain-openai
-pip install langchain-community
-pip install langchain-text-splitters
-pip install unstructured
-pip install "unstructured[md]"
-pip install nltk
-pip install chromadb
-```
-or use `requirements.txt` to install
-```shell
-pip install -r requirements.txt
-```
 
-## Download the Azure Stack HCI docs
-To download the Azure Stack HCI docs, you can follow these steps:
+1. Install dependencies using `requirements.txt` to install
+    ```shell
+    pip install -r requirements.txt
+    ```
 
-1. Open your web browser and go to the [Azure Stack HCI docs repository](https://github.com/MicrosoftDocs/azure-stack-docs/).
-
-1. Click on the green "Code" button located on the right side of the repository.
-
-1. In the dropdown menu, select "Download ZIP". Save the ZIP file to a location on your computer.
+1. In this case I'm using [Azure Stack HCI docs repository](https://github.com/MicrosoftDocs/azure-stack-docs/). To download the Azure Stack HCI docs, you can follow these steps:
     ```shell
     mkdir data
     wget https://github.com/MicrosoftDocs/azure-stack-docs/archive/refs/heads/main.zip -O data/docs.zip
     ```
 
 1. Once the download is complete, extract the contents of the ZIP file to a desired folder.
+    In Linux, run the below:
     ```shell
     cd data && unzip docs.zip
     ```
 
-Now you have successfully downloaded the Azure Stack HCI docs. You can proceed with the next steps in your project.
+    or in Windows, run the below:
+    ```PowerShell
+    Expand-Archive -Path .\data\docs.zip -DestinationPath .\data
+    ```
 
-## Set up your environment variable
-1. Create a `.env` file
-1. Add the following environment variables to the .env file
+1. Set up your environment variable by create a `.env` file. Add the following environment variables to the .env file and save the `.env` file
     ```env
     # Azure OpenAI API Key
     AZURE_OPENAI_API_KEY=your_azure_openai_api_key_here
@@ -148,17 +142,12 @@ Now you have successfully downloaded the Azure Stack HCI docs. You can proceed w
     # Azure OpenAI API version
     OPENAI_API_VERSION="2024-02-15-preview"
     ```
-1. Save the `.env` file
-
-
-## Create ChromaDB using Azure Stack HCI docs
-1. Run the generate Chroma DB command
+1. Run the generate Chroma DB command to create ChromaDB using Azure Stack HCI docs
     ```shell
     python src/createChromaDBlc.py
     ```
 
-## Check if the RAG is working
-1. Run search data to see if RAG results are working properly.
+1. To check if the RAG is working, run search data to see if RAG results are working properly.
     ```shell
     python src/searchdata.py -query "How to register HCI?"
     ```
@@ -168,10 +157,10 @@ Now you have successfully downloaded the Azure Stack HCI docs. You can proceed w
     python src/searchdatalc.py -query "How to register HCI?"
     ```
 
-## Run streamlit
-```shell
-streamlit run ./src/app.py
-```
+1. Run streamlit to try out the chat bot experience
+    ```shell
+    streamlit run ./src/app.py
+    ```
 
 # Disclaimer
 

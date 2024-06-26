@@ -78,7 +78,7 @@ def get_llm(model, temperature):
 # Get response
 def get_ai_response(llm, query, context):
     template = """
-      You are a helfpul assistant. Answer the following question considering only the following context.
+      You are a helfpul assistant. Answer the following user question considering only the following context.
 
       Context:
       {rag_context}
