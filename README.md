@@ -61,7 +61,7 @@ This whole process makes sure that the generated answer is informed by the most 
 ![Script](images/image-03.png)
 
 ### Retrieve answer
-![Retrieve answer](image.png)
+![Retrieve answer](images/image-04.png)
 #### Via Console
 ![Terminal](images/image-01.png)
 - [src/searchdatalc.py](src/searchdatalc.py): Search local Chroma DB based results and provide results using LLM. This use LangChain.
