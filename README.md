@@ -1,6 +1,7 @@
 # Overview
 [Retrieval Augmented Generation](https://ai.meta.com/blog/retrieval-augmented-generation-streamlining-the-creation-of-intelligent-natural-language-processing-models/) article  published in September 2020, says:
 > RAG frees researchers and engineers to quickly develop and deploy solutions to their own knowledge-intensive tasks with just [five lines of code](https://huggingface.co/facebook/rag-token-nq#usage).
+
     ```python
     from transformers import RagTokenizer, RagRetriever, RagTokenForGeneration
 
