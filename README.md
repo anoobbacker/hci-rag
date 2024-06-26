@@ -61,7 +61,7 @@ This whole process makes sure that the generated answer is informed by the most 
 ![Script](images/image-03.png)
 
 ### Retrieve answer
-![Chroma](images/hrm4.svg)
+![Retrieve answer](image.png)
 #### Via Console
 ![Terminal](images/image-01.png)
 - [src/searchdatalc.py](src/searchdatalc.py): Search local Chroma DB based results and provide results using LLM. This use LangChain.
@@ -70,6 +70,10 @@ This whole process makes sure that the generated answer is informed by the most 
 #### Via Web UI
 [src/app.py](src/app.py): Uses [Streamlit](https://streamlit.io/) based web app to search local Chroma DB and provide results using LLM. This uses LangChain.
 ![Streamlit](images/image-02.png)
+
+### Chroma
+Chroma is the AI-native open-source vector database. Chroma makes it easy to build LLM apps by making knowledge, facts, and skills pluggable for LLMs. For more information, refer [documentation](https://docs.trychroma.com/).
+![Chroma](images/chromadb.svg)
 
 # Set up the project
 
