@@ -54,7 +54,7 @@ Another example is the word "king" might be close to the word "queen" in this sp
 
 This whole process makes sure that the generated answer is informed by the most relevant pieces of information from your documents, making the answers accurate and contextually rich.
 
-## Just need execute two files to try this!
+## Just need to execute two files to try this!
 
 ### Create Index
 Run [src/createChromaDBlc.py](src/createChromaDBlc.py) to create a Chroma DB from local folder of Markdown files. This uses LangChain.
@@ -81,7 +81,7 @@ Chroma is the AI-native open-source vector database. Chroma makes it easy to bui
 
 You can run this repo virtually by using GitHub Codespaces, which will open a web-based VS Code in your browser:
 
-[![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=599293758&machine=standardLinux32gb&location=WestUs2)
+[![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://codespaces.new/anoobbacker/hci-rag)
 
 Once the codespace opens (this may take several minutes), open a terminal window.
 
@@ -96,7 +96,7 @@ Install the required tools:
 
 # Set up the project in 10 steps
 
-1. Create virtual environment in Python using Conda. Create a new and activate the environment. Applies only to Local environment.
+1. Create a new virtual environment and active using Conda. This step applies only to local environment.
     ```shell
     conda create -n rag-gs
     conda activate rag-gs
