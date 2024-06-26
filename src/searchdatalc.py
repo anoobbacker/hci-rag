@@ -80,9 +80,11 @@ def get_ai_response(llm, query, context):
     template = """
       You are a helfpul assistant. Answer the following question considering only the following context.
 
-      <context>{rag_context}</context>
+      Context:
+      {rag_context}
 
-      <user_question>{user_question}</user_question>
+      User question:
+      {user_question}
       """
     
     prompt = ChatPromptTemplate.from_template(template)
@@ -119,7 +121,7 @@ def main(chunk_size=CHUNK_SIZE, model="gpt-4o", temperature=0.2):
         print(f"Unable to find matching results. {results}")
         return
     
-    print(f"Got Chroma DB search results!")
+    print(f"Got Chroma DB search results with scores {results}!")
     
     # create the context string from the top 3 results
     rag_context = "\n\n---\n\n".join([doc.page_content for doc, _score in results])

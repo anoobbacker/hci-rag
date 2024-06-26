@@ -155,14 +155,16 @@ def main():
         n_results=3,
         include=['metadatas', 'documents', 'distances']
     )
-    if len(results) == 0 or results['distances'][0][0] < 0.2:
+
+    print(f"Got Chroma DB search results")
+    if results['distances'] is None or len(results['distances']) == 0 or sum(len(sublist) for sublist in results['distances']) == 0 or results['distances'][0][0] < 0.2:
         print(f"Unable to find matching results. {results}")
         return
     
     # create the context from the top 3 results
     rag_context = "\n\n---\n\n".join(doc for sublist in results['documents'] for doc in sublist)
-    print(f"Got Chroma DB search results")
 
+    print(f"Get AI response for {query_text} with context from search")
     # get the response from the AI
     ai_response = get_response(llm=client, query=query_text, context=rag_context, model=MODEL)
     print(ai_response.choices[0].message.content)
