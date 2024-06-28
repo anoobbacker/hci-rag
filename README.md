@@ -1,4 +1,4 @@
-# Overview
+A# Overview
 [Retrieval Augmented Generation](https://ai.meta.com/blog/retrieval-augmented-generation-streamlining-the-creation-of-intelligent-natural-language-processing-models/) article  published in September 2020, says:
 > RAG frees researchers and engineers to quickly develop and deploy solutions to their own knowledge-intensive tasks with just [five lines of code](https://huggingface.co/facebook/rag-token-nq#usage).
 
@@ -54,7 +54,7 @@ Another example is the word "king" might be close to the word "queen" in this sp
 
 This whole process makes sure that the generated answer is informed by the most relevant pieces of information from your documents, making the answers accurate and contextually rich.
 
-## Just need to execute two files to try this!
+## Just two files to try this!
 
 ### Create Index
 Run [src/createChromaDBlc.py](src/createChromaDBlc.py) to create a Chroma DB from local folder of Markdown files. This uses LangChain.
@@ -94,7 +94,7 @@ Install the required tools:
 - [Miniconda](https://docs.anaconda.com/miniconda/miniconda-install/).
 - [Git](https://git-scm.com/downloads)
 
-# Set up the project in 10 steps
+# Set up the project in 8 steps
 
 1. Create a new virtual environment and active using Conda. This step applies only to local environment.
     ```shell
