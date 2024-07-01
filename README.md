@@ -1,6 +1,6 @@
-A# Overview
-[Retrieval Augmented Generation](https://ai.meta.com/blog/retrieval-augmented-generation-streamlining-the-creation-of-intelligent-natural-language-processing-models/) article  published in September 2020, says:
-> RAG frees researchers and engineers to quickly develop and deploy solutions to their own knowledge-intensive tasks with just [five lines of code](https://huggingface.co/facebook/rag-token-nq#usage).
+# Overview
+[Retrieval Augmented Generation](https://ai.meta.com/blog/retrieval-augmented-generation-streamlining-the-creation-of-intelligent-natural-language-processing-models/) article says:
+> RAG frees researchers and engineers to quickly develop and deploy solutions to their own knowledge-intensive tasks with just five lines of code.
 
 ```python
 from transformers import RagTokenizer, RagRetriever, RagTokenForGeneration
@@ -14,9 +14,9 @@ input_dict = tokenizer.prepare_seq2seq_batch("who holds the record in 100m frees
 generated = model.generate(input_ids=input_dict["input_ids"]) 
 print(tokenizer.batch_decode(generated, skip_special_tokens=True)[0])
 ```
-
-
 Wow, I've managed to grasp the concept after some  analysis! Let me simplify it for you:
+
+>[Check out my video walking through the basic concepts](https://youtu.be/2Ibg65kKPIs?si=tyyJgL-xozB6ctrj)
 
 First, let me explain some of the basic concepts:
 ## Vector
