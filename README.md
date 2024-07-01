@@ -1,6 +1,5 @@
 # Overview
-[Retrieval Augmented Generation](https://ai.meta.com/blog/retrieval-augmented-generation-streamlining-the-creation-of-intelligent-natural-language-processing-models/) article says:
-> RAG frees researchers and engineers to quickly develop and deploy solutions to their own knowledge-intensive tasks with just five lines of code.
+[Retrieval Augmented Generation](https://ai.meta.com/blog/retrieval-augmented-generation-streamlining-the-creation-of-intelligent-natural-language-processing-models/) article says: `RAG frees researchers and engineers to quickly develop and deploy solutions to their own knowledge-intensive tasks with just five lines of code.`
 
 ```python
 from transformers import RagTokenizer, RagRetriever, RagTokenForGeneration
@@ -14,11 +13,13 @@ input_dict = tokenizer.prepare_seq2seq_batch("who holds the record in 100m frees
 generated = model.generate(input_ids=input_dict["input_ids"]) 
 print(tokenizer.batch_decode(generated, skip_special_tokens=True)[0])
 ```
-Wow, I've managed to grasp the concept after some  analysis! Let me simplify it for you:
-
->[Check out my video walking through the basic concepts](https://youtu.be/2Ibg65kKPIs?si=tyyJgL-xozB6ctrj)
-
+Wow, I've managed to grasp the concept after some  analysis! Let me simplify it for you! 
 First, let me explain some of the basic concepts:
+
+## YouTube video explaining the basics
+>[![Check out my video walking through the basic concepts](./images/image.png)](https://youtu.be/2Ibg65kKPIs?si=tyyJgL-xozB6ctrj)
+
+
 ## Vector
 **Vector** is a list of numbers representing different data. For example, imagine if you've to represent fruits using vector!
   - Apple: [1, 0, 0]
